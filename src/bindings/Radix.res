@@ -6,7 +6,7 @@ module Popover = {
 
   module Trigger = {
     @react.component @module("@radix-ui/react-popover")
-    external make: (~children: React.element, ~asChild: bool=?) => React.element = "Trigger"
+    external make: (~children: React.element=?, ~className: string=?, ~asChild: bool=?) => React.element = "Trigger"
   }
 
   module Portal = {
@@ -20,8 +20,9 @@ module Popover = {
       ~children: React.element,
       ~asChild: bool=?,
       ~forceMount: bool=?,
-      ~side: [#top | #right | #bottom | #left],
+      ~side: [#top | #right | #bottom | #left]=?,
       ~sideOffset: int=?,
+      ~className: string=?,
     ) => React.element = "Content"
   }
 }
