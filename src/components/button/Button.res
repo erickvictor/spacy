@@ -12,7 +12,7 @@ module Styles = {
       "alignItems": "center",
       "justifyContent": "center",
       "minWidth": 124,
-      "width": block ? "100%": "auto",
+      "width": block ? "100%" : "auto",
       "height": switch size {
       | #md => "32px"
       | #lg => "42px"
@@ -31,15 +31,15 @@ module Styles = {
       "fontFamily": Constants.fontFamily,
       "fontWeight": 700,
       "border": 0,
-      "color": Colors.primary100->Colors.toString,
-      "backgroundColor": Colors.primary700->Colors.toString,
+      "color": Colors.make(#primary100),
+      "backgroundColor": Colors.make(#primary700),
       "cursor": "pointer",
       "willChange": "background-color",
       "transition": transition,
       "outline": 0,
       "&:hover": {
         "transition": transition,
-        "backgroundColor": Colors.primary500->Colors.toString,
+        "backgroundColor": Colors.make(#primary500),
       },
       "&:disabled": {
         "opacity": 0.3,
@@ -60,8 +60,12 @@ let make = (~label, ~loading=false, ~block=false, ~onClick=?, ~disabled=false, ~
   | #md => #rem(1.6)
   }
   <Base className={Styles.button(~size, ~block)} ?onClick disabled tag=#button>
-    {if loading{
-      <Spinner size=spinnerSize color=Theme.Colors.primary100 background=Theme.Colors.primary100 />
+    {if loading {
+      <Spinner
+        size=spinnerSize
+        color=#primary100
+        background=#primary100
+      />
     } else {
       label->React.string
     }}
