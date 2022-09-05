@@ -4,11 +4,10 @@ open AncestorSpacy
 let make = (~title, ~description, ~cta=?) => {
   <Stack
     gap=[xs(#one(4.0))]
-    direction=[xs(#horizontal)]
     justifyContent=[xs(#center)]
     alignItems=[xs(#center)]>
     <Next.Image src="/images/error-state.svg" width=120.0 height=124.0 layout=#fixed />
-    <Stack direction=[xs(#horizontal)] gap=[xs(#one(1.0))]>
+    <Stack gap=[xs(#one(1.0))]>
       <Typography
         tag=#h1
         textAlign=[xs(#center)]
