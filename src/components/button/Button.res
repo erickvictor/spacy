@@ -3,7 +3,6 @@ open AncestorSpacy
 type size = [#md | #lg]
 
 module Styles = {
-  open Theme
 
   let button = (~size: size, ~block) => {
     let transition = `200ms background-color, 150ms box-shadow`
@@ -25,21 +24,21 @@ module Styles = {
       | #md => "2.1rem"
       | #lg => "2.3rem"
       },
-      "padding": `0 ${spacing(2.0)}`,
-      "borderRadius": radius(0.25),
+      "padding": `0 ${Theme.spacing(2.0)}`,
+      "borderRadius": Theme.radius(0.25),
       "letterSpacing": "-0.055em",
-      "fontFamily": Constants.fontFamily,
+      "fontFamily": Theme.Constants.fontFamily,
       "fontWeight": 700,
       "border": 0,
-      "color": Colors.make(#primary100),
-      "backgroundColor": Colors.make(#primary700),
+      "color": Theme.colors(#primary100),
+      "backgroundColor": Theme.colors(#primary700),
       "cursor": "pointer",
       "willChange": "background-color",
       "transition": transition,
       "outline": 0,
       "&:hover": {
         "transition": transition,
-        "backgroundColor": Colors.make(#primary500),
+        "backgroundColor": Theme.colors(#primary500),
       },
       "&:disabled": {
         "opacity": 0.3,

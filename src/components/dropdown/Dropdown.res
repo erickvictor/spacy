@@ -25,16 +25,16 @@ module Styles = {
     "willChange": "background",
     "&:focus": {
       "transition": "150ms box-shadow",
-      "boxShadow": `0px 0px 0px 2px ${Theme.Colors.make(#primary200)}`,
+      "boxShadow": `0px 0px 0px 2px ${Theme.colors(#primary200)}`,
     },
     "&:hover": {
       "transition": "200ms background",
-      "background": Theme.Colors.make(#primary200)->Polished.transparentize(0.5, _),
+      "background": Theme.colors(#primary200)->Polished.transparentize(0.5, _),
     },
   })
 
   let content = css({
-    "border": `solid 1px ${Theme.Colors.make(#primary200)->Polished.transparentize(0.5, _)}`,
+    "border": `solid 1px ${Theme.colors(#primary200)->Polished.transparentize(0.5, _)}`,
     "borderRadius": Theme.Spacing.make(1.0),
     "padding": Theme.Spacing.make(2.0),
     "display": "flex",
@@ -64,14 +64,14 @@ module Styles = {
     "willChange": "background",
     "outline": "none",
     "textDecoration": "none",
-    "color": Theme.Colors.make(#primary700),
+    "color": Theme.colors(#primary700),
     "&:focus": {
       "transition": "150ms box-shadow",
-      "boxShadow": `0px 0px 0px 2px ${Theme.Colors.make(#primary200)}`,
+      "boxShadow": `0px 0px 0px 2px ${Theme.colors(#primary200)}`,
     },
     "&:hover": {
       "transition": "200ms background",
-      "background": Theme.Colors.make(#primary200)->Polished.transparentize(0.8, _),
+      "background": Theme.colors(#primary200)->Polished.transparentize(0.8, _),
     },
   })
 }
