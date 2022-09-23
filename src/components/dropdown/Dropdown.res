@@ -6,11 +6,11 @@ module Styles = {
   let slideUpAndFade = keyframes({
     "from": {
       "opacity": 0,
-      "transform": "translateY(2px)"
+      "transform": "translateY(2px)",
     },
     "to": {
       "opacity": 1,
-      "transform": 0
+      "transform": 0,
     },
   })
 
@@ -45,8 +45,8 @@ module Styles = {
     "&[data-state='open']": {
       "&[data-side='bottom']": {
         "animationName": slideUpAndFade,
-      }
-    }
+      },
+    },
   })
 
   let item = css({
@@ -84,7 +84,9 @@ module Item = {
 @react.component
 let make = (~trigger, ~children) => {
   <Popover.Root>
-    <Popover.Trigger className=Styles.trigger> trigger </Popover.Trigger>
+    <Popover.Trigger asChild=true>
+      <button className=Styles.trigger> trigger </button>
+    </Popover.Trigger>
     <Popover.Portal>
       <Popover.Content sideOffset=6 className=Styles.content> children </Popover.Content>
     </Popover.Portal>

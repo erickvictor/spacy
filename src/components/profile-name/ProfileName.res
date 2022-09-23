@@ -13,7 +13,7 @@ let make = (~size: size=#lg, ~name) => {
   | #lg => #rem(1.6)
   | #md => #rem(1.4)
   }
-  <Stack alignItems=[xs(#center)] gap=[xs(#one(1.0))]>
+  <Stack direction=[xs(#horizontal)] alignItems=[xs(#center)] gap=[xs(#one(1.0))]>
     <Avatar size=avatarSize name />
     <Typography fontSize=[xs(fontSize)] color=[xs(#primary700)] fontWeight=[xs(#700)] letterSpacing=[xs(-0.05->#em)]>
       {name->React.string}
