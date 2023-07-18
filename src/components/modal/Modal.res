@@ -87,13 +87,21 @@ module Close = {
   }
 }
 
-@react.component
-let make = (~trigger, ~children) => {
-  open Radix
+module Root = Radix.Dialog.Root
+module Trigger = Radix.Dialog.Trigger
 
-  <Dialog.Root>
-    <Dialog.Trigger asChild=true> trigger </Dialog.Trigger>
-    <Dialog.Overlay className=Styles.overlay />
-    <Dialog.Content className=Styles.content> children </Dialog.Content>
-  </Dialog.Root>
+module Overlay = {
+  @react.component
+  let make = () => {
+    <Radix.Dialog.Overlay className=Styles.overlay />
+  }
 }
+
+module Content = {
+  @react.component
+  let make = (~children) => {
+    <Radix.Dialog.Content className=Styles.content> children </Radix.Dialog.Content>
+  }
+}
+
+
