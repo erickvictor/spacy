@@ -3,8 +3,29 @@ open Render
 
 module Hero = Home_hero
 
+module Query = %relay(`
+query HomeQuery {
+  usersConnection {
+    edges {
+      node {
+        id
+        username
+      }
+    }
+  }
+}
+`)
+
+let getServerSideProps = context => {
+  context->RelaySSR.executeQueryEnvironment(environment => {
+    Query.fetchPromised(~environment, ~variables=(), ())
+  })
+}
+
 let default = () => {
   let fakeArticles = [1, 2, 3, 4, 5, 6]
+  // let queryData = Query.use(~variables=(), ())
+  // Js.log(queryData)
   <Box p=[xs(4.0)]>
     <Box>
       <Hero>
